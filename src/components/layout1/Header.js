@@ -1,7 +1,22 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-
+import React,{useState,useEffect} from 'react'
+import { Link ,useNavigate} from 'react-router-dom'
+import {message} from 'antd'
 const Header = () => {
+      const [loginUser,setLoginUser]=useState("");
+      const navigate=useNavigate();
+
+    useEffect(()=>{
+        const user=JSON.parse(localStorage.getItem("user"));
+        if(user){
+          setLoginUser(user);
+        }
+
+    },[]);
+ const logoutHandler=()=>{
+  localStorage.removeItem('user')
+  message.success('logout success')
+   navigate('/login')
+ }
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -26,6 +41,15 @@ const Header = () => {
         &nbsp;&nbsp;
         <li className="nav-item">
         <button  style={{ backgroundColor: 'beige', color: 'white', padding: '2px', border: 'none', borderRadius: '5px' }}><Link className="nav-link active" aria-current="page" to="/admin"><h5>ADMIN</h5></Link></button>
+        </li>
+        &nbsp;&nbsp;
+        <li className="nav-item">
+        <button  className='btn btn-primary' onClick={logoutHandler}
+        style={{ backgroundColor: 'beige', color: 'white', padding: '2px', border: 'none', borderRadius: '5px' }}>
+          <Link className="nav-link active" aria-current="page" to="/admin">
+          <h5>Logout</h5>
+          </Link>
+          </button>
         </li>
         &nbsp;&nbsp;
         <img src="https://thebudgeting.app/static/media/logo.0af2e749811b23dbc318.webp" alt='App logo' height={100}/>
