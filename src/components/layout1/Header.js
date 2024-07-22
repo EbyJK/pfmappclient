@@ -10,11 +10,25 @@ const Header = () => {
       <span className="navbar-toggler-icon">
       </span></button>
     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <Link className="navbar-brand" to="/">Personal Finance Management </Link>
+      <Link className="navbar-brand" to="/"><h1>Personal Finance Manager</h1></Link>
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" to="/user">USER</Link>
+      <li className="nav-item">
+        <button  style={{ backgroundColor: 'beige', color: 'white', padding: '2px', border: 'none', borderRadius: '5px' }}> <Link className="nav-link active" aria-current="page" to="/login"><h5>Login</h5></Link></button>
         </li>
+        &nbsp;&nbsp;
+      <li className="nav-item">
+         <button  style={{ backgroundColor: 'beige', color: 'white', padding: '2px', border: 'none', borderRadius: '5px' }}><Link className="nav-link active" aria-current="page" to="/register"><h5>Sign UP</h5></Link></button> 
+        </li>
+        &nbsp;&nbsp;
+        <li className="nav-item">
+          <button  style={{ backgroundColor: 'beige', color: 'white', padding: '2px', border: 'none', borderRadius: '5px' }}><Link className="nav-link active" aria-current="page" to="/user"><h5>USER</h5></Link></button>
+        </li>
+        &nbsp;&nbsp;
+        <li className="nav-item">
+        <button  style={{ backgroundColor: 'beige', color: 'white', padding: '2px', border: 'none', borderRadius: '5px' }}><Link className="nav-link active" aria-current="page" to="/admin"><h5>ADMIN</h5></Link></button>
+        </li>
+        &nbsp;&nbsp;
+        <img src="https://thebudgeting.app/static/media/logo.0af2e749811b23dbc318.webp" alt='App logo' height={100}/>
       </ul>
     </div>
   </div>

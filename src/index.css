@@ -10,6 +10,21 @@
   
 }
 #navbarTogglerDemo01{
+  
   background-color: aqua !important;
   
+}
+.register-page{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height: 100vh;
+  background-color: blanchedalmond;
+}
+.home-page{
+  align-items:center;
+  justify-content:center;
+  height: 80vh;
+  text-align: center;
+  background-color: aliceblue;
 }
