@@ -22,9 +22,26 @@
   background-color: blanchedalmond;
 }
 .home-page{
-  align-items:center;
-  justify-content:center;
-  height: 80vh;
+    align-items:center;  
+    justify-content:center;  
+  height: 100vh;
   text-align: center;
   background-color: aliceblue;
 }
+.filters{
+   display:flex; 
+    align-items:center;  
+   justify-content:space-between;
+   padding:15px 20px;
+   box-shadow: 0 0 3px black;
+}
+
+  #footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #000; /* bg-dark */
+    color: #fff; /* text-light */
+    padding: 4px;
+    text-align: center;
+  }
