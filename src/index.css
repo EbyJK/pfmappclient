@@ -45,3 +45,46 @@
     padding: 4px;
     text-align: center;
   }
+
+  .anticon svg{
+      /* width:50px;
+      height:50px;
+      font-size: 50px; */
+      cursor:pointer;
+     
+  }
+  .icon-container {
+    
+      font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-shadow : 0 0 15px rgba(0,0,0,0.677);
+    border-radius: 5px;
+    padding: 10px 15px;
+    border: 2px solid #000; 
+
+}
+.mx-2{
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  /* box-shadow : 0 0 15px rgba(0,0,0,0.677); */
+  border-radius: 5px;
+  padding: 10px 15px;
+  border: 2px solid #000; 
+
+}
+
+.active-icon{
+      color:blue;
+
+}
+.inactive-icon{
+  color:black;
+}
+
+

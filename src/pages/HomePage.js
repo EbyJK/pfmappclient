@@ -1,25 +1,66 @@
 import React,{useEffect,useState} from 'react'
-import { Form, Input, message, Modal, Select} from 'antd'
-// import {DatePicker} from 'antd'
+import { Form, Input, message, Modal, Select, Table} from 'antd'
+ import {DatePicker} from 'antd'
+ import moment from "moment";
 import Layout1 from '../components/layout1/Layout1'
 //import { Option } from 'antd/es/mentions'
 import axios from 'axios'
 import Spinner from '../components/layout1/Spinner'
+import Analytics from '../components/layout1/Analytics';
+import Admin from './Admin';
 
-
+const {RangePicker}= DatePicker;
 
 
 const HomePage = () => {
   const [loading,setLoading]=useState(false);
     const [showModal,setShowModal]=useState(false)
     const[allTransaction,setAllTransaction]=useState([])
+    const[frequency,setFrequency]=useState('7')
+    const[selectedDate,setSelecteddate]=useState([])
+    const [type,setType]=useState('all')
+    // const [viewData,setViewData]=useState('table')
+    //table data
+    const columns=[
+      {
+        title:'date',
+        dataIndex:'date',
+        render:(text)=><span>{moment(text).format("YYYY-MM-DD")}</span>
+      },
+      {
+        title:'amount',
+        dataIndex:'amount'
+      },
+      {
+        title:'type',
+        dataIndex:'type'
+      },
+      {
+        title:'category',
+        dataIndex:'category'
+      },
+      {
+        title:'description',
+        dataIndex:'description'
+      },
+      {
+        title:'Actions'
+       
+      },
+    ]
 
     //get all transactions
     const getAllTransaction=async(values)=>{
       try{
           const user=JSON.parse(localStorage.getItem('user'))
           setLoading(true);
-          const res=await axios.post('/transactions/get-transaction',{userid:user._id})
+          const res=await axios.post('/transactions/get-transaction',{
+            
+            userid:user._id,        //handler
+            frequency,
+            selectedDate,
+            type,
+          })
           setLoading(false)
           setAllTransaction(res.data)
           console.log(res.data)
@@ -28,15 +69,12 @@ const HomePage = () => {
           console.log(error)
           message.error('issue with transaction')
       }
-    }
+    };
     //useEffect hook
+      useEffect (()=>{
+          getAllTransaction();
 
-
-
-
-
-
-
+      },[frequency,selectedDate,type]);
 
 
 
@@ -73,19 +111,48 @@ const HomePage = () => {
         &nbsp;
         <br/>
         <div className="home-page">
-        <h1>Home Page</h1>
+        <h5>Home Page</h5>
         <h2> Welcome {loginUser && loginUser.name}..!</h2>
         {/* <h3>Access Our Facilities Using the Navbar above</h3> */}
 
 
-    
+        
         <div className="filters">
-            <div>Range/Filters</div>
+        
+          <div>
+          <div>Range/Filters</div>
+            <h6>Select</h6>
+            <Select value={frequency} onChange={(values)=>setFrequency(values)}>
+              <Select.Option value="7">last 1 week</Select.Option>
+              <Select.Option value="14">last 2 weeks</Select.Option>
+              <Select.Option value="21">last 3 weeks</Select.Option>
+              <Select.Option value="30">previus month</Select.Option>
+              <Select.Option value="182">6 months</Select.Option>
+              <Select.Option value="365">1 year</Select.Option>
+              <Select.Option value="custom">custom</Select.Option>
+            </Select>
+            {frequency == "custom" && <RangePicker value={selectedDate} onChange={(values)=>setSelecteddate(values)}></RangePicker>}
+          </div>
+          <div>
+          <h6>Select type</h6>
+            <Select value={type} onChange={(values)=>setType(values)}>
+              <Select.Option value="all">All</Select.Option>
+              <Select.Option value="income">Income</Select.Option>
+              <Select.Option value="expense">Expense</Select.Option>
+              
+            </Select>
+            {frequency == "custom" && <RangePicker value={selectedDate} onChange={(values)=>setSelecteddate(values)}></RangePicker>}
+            </div>
               <div>
                 <button className="btn btn-primary" onClick={()=>setShowModal(true)}>Add new</button>
               </div>
         </div>
-        <div className="content"></div>
+        <div className="content">
+          {/* {viewData ==='table'?
+          <Table columns={columns} dataSource={allTransaction}></Table> 
+          :  <Analytics> allTransaction={allTransaction} </Analytics>} */}
+           <Table columns={columns} dataSource={allTransaction}></Table> 
+        </div>
         <Modal title="Add Transaction" open={showModal} onCancel={()=>setShowModal(false)} footer={false}>
           <Form layout="vertical" onFinish={handleSubmit}>
                 <Form.Item label="amount" name='amount' >
