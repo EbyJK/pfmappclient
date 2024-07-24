@@ -35,9 +35,9 @@ const Header = () => {
          <button  style={{ backgroundColor: 'beige', color: 'white', padding: '2px', border: 'none', borderRadius: '5px' }}><Link className="nav-link active" aria-current="page" to="/register"><h5>Sign UP</h5></Link></button> 
         </li>
         &nbsp;&nbsp;
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <button  style={{ backgroundColor: 'beige', color: 'white', padding: '2px', border: 'none', borderRadius: '5px' }}><Link className="nav-link active" aria-current="page" to="/user"><h5>USER</h5></Link></button>
-        </li>
+        </li> */}
         &nbsp;&nbsp;
         <li className="nav-item">
         <button  style={{ backgroundColor: 'beige', color: 'white', padding: '2px', border: 'none', borderRadius: '5px' }}><Link className="nav-link active" aria-current="page" to="/admin"><h5>ADMIN</h5></Link></button>

@@ -43,10 +43,10 @@ const HomePage = () => {
         title:'description',
         dataIndex:'description'
       },
-      {
-        title:'Actions'
+      // {
+      //   title:'Actions'
        
-      },
+      // },
     ]
 
     //get all transactions

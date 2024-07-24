@@ -19,8 +19,10 @@ const Analytics = ({allTransaction}) => {
                 </div>
                 <div className="card-body">
                         <h5 className="text-success">Income:{totalIncomeTransactions.length}</h5>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <br></br>
                         <h5 className="text-danger">Expense:{totalExpenseTransactions.length}</h5>
-                        <div>
+                        <div className="chart">
                             <Progress type="circle" strokeColor={'green'} className='mx-3' percent={totalIncomePercent.toFixed(0)}></Progress>
                             <Progress type="circle" strokeColor={'red'} className='mx-3' percent={totalExpensePercent.toFixed(0)}></Progress>
                         </div>
