@@ -59,7 +59,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* height: 100vh; */
     box-shadow : 0 0 15px rgba(0,0,0,0.677);
     border-radius: 5px;
     padding: 10px 15px;
