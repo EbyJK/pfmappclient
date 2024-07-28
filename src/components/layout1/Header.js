@@ -18,7 +18,8 @@ const Header = () => {
    navigate('/login')
  }
   return (
-    <>
+    
+    <div id="navnbar">
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
   <div className="container-fluid">
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,14 +53,14 @@ const Header = () => {
           </button>
         </li>
         &nbsp;&nbsp;
-        <img src="https://thebudgeting.app/static/media/logo.0af2e749811b23dbc318.webp" alt='App logo' height={100}/>
+        <img src="https://static.sheetgo.com/wp-content/uploads/2020/05/icons-expense-tracker.svg" alt='App logo' height={100}/>
       </ul>
     </div>
   </div>
 </nav>
+</div>
 
 
-</>
   )
 }
 

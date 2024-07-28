@@ -471,8 +471,8 @@ const HomePage = () => {
     <Layout1>
       {loading && <Spinner />}
       <div className="home-page">
-        <h5>Home Page</h5>
-        <h2>Welcome {loginUser && loginUser.name}..!</h2>
+        {/* <h5 className="center-text">Home Page</h5> */}
+        <h2 className="center-text">Welcome {loginUser && loginUser.name}&nbsp;&nbsp;&nbsp;</h2>
         <div className="filters">
           <div>
             <div>Range/Filters</div>
@@ -496,7 +496,10 @@ const HomePage = () => {
               <Select.Option value="expense">Expense</Select.Option>
             </Select>
           </div>
-          <div>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <div >
             <button className="btn btn-primary" onClick={() => setShowModal(true)}>Add new</button>
           </div>
         </div>

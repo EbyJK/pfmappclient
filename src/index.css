@@ -1,10 +1,10 @@
-* ,*::before, *::after{ 
+/* * ,*::before, *::after{ 
   padding:0;
   margin:0;
   box-sizing:border-box;
-}
+} */
 
-.content{
+/* .content{
   
   height:  80vh;
   
@@ -13,46 +13,47 @@
   
   background-color: aqua !important;
   
-}
-.register-page{
+} */
+/* .register-page{
   display:flex;
   align-items:center;
   justify-content:center;
   height: 100vh;
   background-color: blanchedalmond;
-}
-.home-page{
+} */
+/* .home-page{
     align-items:center;  
     justify-content:center;  
   height: 100vh;
   text-align: center;
   background-color: aliceblue;
-}
-.filters{
+} */
+/* .filters{
    display:flex; 
     align-items:center;  
    justify-content:space-between;
    padding:15px 20px;
    box-shadow: 0 0 3px black;
-}
+} */
 
-  #footer{
+  /* #footer{
     position: fixed;
     bottom: 0;
     width: 100%;
     background-color: #000; /* bg-dark */
-    color: #fff; /* text-light */
-    padding: 4px;
-    text-align: center;
-  }
+    /* color: #fff; text-light */
+    /* padding: 4px; */
+    /* text-align: center; */
+  /* } */ 
 
   .anticon svg{
-      /* width:50px;
-      height:50px;
-      font-size: 50px; */
-      cursor:pointer;
+       /* width:50px; */
+      /* height:50px; */
+      /* font-size: 50px;  */
+      cursor:pointer; 
      
-  }
+   } 
+   
   .icon-container {
     
       font-size: 50px;
@@ -63,21 +64,21 @@
     box-shadow : 0 0 15px rgba(0,0,0,0.677);
     border-radius: 5px;
     padding: 10px 15px;
-    border: 2px solid #000; 
+    /* border: 2px solid #000;  */
 
-}
+} 
 .mx-2{
   font-size: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 100vh; */
-  /* box-shadow : 0 0 15px rgba(0,0,0,0.677); */
+
+  box-shadow : 0 0 15px rgba(0,0,0,0.677);
   border-radius: 5px;
   padding: 10px 15px;
   border: 2px solid #000; 
 
-}
+ } 
 
 .active-icon{
       color:blue;
@@ -93,4 +94,226 @@
 
 }
 
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
+
+
+
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #0af9f5; /* Light background color for the body */
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin: 20px 0;
+}
+
+a {
+  text-decoration: none;
+  color: #1890ff;
+}
+
+a:hover {
+  color: #40a9ff;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Header styles */
+.header {
+  background-color: #003a8c; /* Dark blue for the header */
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 15px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Footer styles */
+.footer {
+  background-color: #003a8c; /* Dark blue for the footer */
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+/* Layout styles */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 60px; /* To avoid overlap with fixed header */
+  padding-bottom: 60px; /* To avoid overlap with fixed footer */
+}
+
+/* Home Page */
+.home-page {
+  background-color: rgb(43, 202, 226); /* Light background for home page */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 1200px; /* Centered content with max-width */
+  /* display: flex; */
+}
+
+.home-page h2 {
+  margin: 20px 0;
+  text-align: center; /* Center align heading */
+}
+
+.filters {
+  background-color: #f4f6f9; /* Light grey for filters section */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.filters .btn-primary {
+  background-color: #003a8c; /* Dark blue button background */
+  color: white;
+  border: none;
+}
+
+.filters .btn-primary:hover {
+  background-color: #0056a0; /* Slightly lighter blue on hover */
+}
+
+.content {
+  margin-top: 20px;
+}
+
+/* Login and Register Pages */
+.register-page, .login-page {
+  background-color: #f7f9fc; /* Light background for form pages */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 40px auto;
+}
+
+.register-page h1, .login-page h1 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.register-page .btn-primary, .login-page .btn-primary {
+  background-color: #003a8c; /* Dark blue button background */
+  color: white;
+  border: none;
+}
+
+.register-page .btn-primary:hover, .login-page .btn-primary:hover {
+  background-color: #0056a0; /* Slightly lighter blue on hover */
+}
+
+/* Ant Design Elements */
+.ant-select-selector {
+  background-color: #ffffff; /* White background for select dropdowns */
+  border: 1px solid #d9d9d9; /* Light grey border for select dropdowns */
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.ant-select-selector .ant-select-selection-item {
+  color: #333; /* Dark text color for selected item */
+}
+
+.ant-select-item-option-content {
+  color: #333; /* Dark text color for select dropdown items */
+}
+
+/* Table Styles */
+.ant-table {
+  background-color: #ffffff; /* White background for table */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.ant-table-thead > tr > th {
+  background-color: #003a8c; /* Dark blue header background */
+  color: white;
+  text-align: center; /* Center align table headers */
+}
+
+.ant-table-tbody > tr > td {
+  color: #333;
+  text-align: center; /* Center align table cells */
+}
+
+.ant-table-tbody > tr:nth-child(even) {
+  background-color: #f4f6f9; /* Alternating row color */
+}
+
+/* Modal */
+.ant-modal {
+  border-radius: 8px;
+}
+
+.ant-modal-header {
+  background-color: #003a8c; /* Dark blue modal header */
+  color: white;
+}
+
+.ant-modal-title {
+  color: white;
+}
+
+/* Spinner */
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px); /* Adjust height to avoid overlap with header/footer */
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Centered elements */
+.centered {
+  text-align: center;
+}
+
+.centered h1, .centered h2 {
+  margin: 20px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .layout {
+    padding: 10px;
+  }
+  .register-page, .login-page {
+    width: 100%;
+    padding: 15px;
+  }
+}
+
+#navnbar {
+  background-color: blueviolet;
+}
+
+/* Increase icon size for table and chart */
+.anticon-table, .anticon-bar-chart {
+  font-size: 40px; /* Adjust size as needed */
+}
+
+/* Align "Add New" button to the right */
+.add-new-button {
+  display: flex;
+  justify-content: flex-end;
+}
