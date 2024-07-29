@@ -484,7 +484,7 @@ const HomePage = () => {
               <Select.Option value="30">previous month</Select.Option>
               <Select.Option value="182">6 months</Select.Option>
               <Select.Option value="365">1 year</Select.Option>
-              <Select.Option value="custom">custom</Select.Option>
+              {/* <Select.Option value="custom">custom</Select.Option> */}
             </Select>
             {frequency === "custom" && <RangePicker value={selectedDate} onChange={(values) => setSelectedDate(values)} />}
           </div>

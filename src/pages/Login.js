@@ -31,8 +31,10 @@ useEffect(()=>{
 },[navigate]);
 
   return (
+    
     <div className=' register-page'>
         {loading && <Spinner></Spinner>}
+        
     <Form layout="vertical" onFinish={submitHandler}>
       <h1>Login</h1>
       {/* <Form.Item label='Name' name="name">
@@ -54,7 +56,14 @@ useEffect(()=>{
           <button className="btn btn-primary">Login</button>
 
       </div>
-
+      &nbsp;&nbsp;
+        <li className="nav-item">
+        
+        <button  style={{ backgroundColor: 'darkblue', color: 'white', padding: '1px', border: 'none', borderRadius: '5px' }}><Link className="nav-link active" aria-current="page" to="/admin"><h5>ADMIN</h5></Link></button>
+        &nbsp;&nbsp;&nbsp;
+        <Link to='/admin'>Login as Administrator</Link>
+        </li>
+        &nbsp;&nbsp;
     </Form>
   </div>
   )
