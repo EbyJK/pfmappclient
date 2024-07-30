@@ -520,7 +520,40 @@ const Admin = () => {
     message.success('logout success')
      navigate('/login')
    }
+   const handleDelete=async(record)=>{
+    try{
+      setLoading(true);
+      await axios.post("/transactions/delete-transaction",{transactionId:record._id});
+      setLoading(false);
+      message.success('transaction deleted');
+    }
+    catch(error){
+      setLoading(false);
+      console.log(error);
+      message.error('unablle to delete')
+    }
 
+   };
+   const handleSubmit = async (values) => {
+    try {
+      const user = JSON.parse(localStorage.getItem('user'));
+      setLoading(true);
+      if(editable){
+        await axios.post('/transactions/edit-transaction',{payload:{ ...values, userid: user._id },transactionId:editable._id});
+      setLoading(false);
+      message.success('Transaction updated successfully');
+
+      }
+      
+      setShowModal(false);
+      setEditable(null);
+      getAllTransaction();
+    } catch (error){
+
+      setLoading(false);
+      message.error('Failed to add transaction');
+    }
+  };
   const columns = [
     {
       title: 'Date',
@@ -548,10 +581,11 @@ const Admin = () => {
       render:(text, record) => (
         <div>
           <EditOutlined onClick={() => {
+            handleSubmit(record);
             setEditable(record);
             setShowModal(true);
           }} />
-          <DeleteOutlined className='mx-5' />
+          <DeleteOutlined className='mx-5' onClick={()=>{handleDelete(record);}}/>
         </div>
       )
     },
@@ -573,7 +607,7 @@ const Admin = () => {
     try {
       const user = JSON.parse(localStorage.getItem('user'));
       if (!user || !user._id) {
-        message.error('User not found or invalid');
+        // message.error('User not found or invalid');
         return;
       }
 
@@ -615,7 +649,7 @@ const Admin = () => {
     <div className="admin-page">
       {loading && <Spinner />}
       <button  className='btn btn-primary' onClick={logoutHandler}
-        style={{ backgroundColor: 'black', color: 'white', padding: '10px', border: 'none', borderRadius: '50px' }}>
+        style={{ backgroundColor: 'white', color: 'black', padding: '10px', border: 'none', borderRadius: '50px' }}>
           <Link className="nav-link active" aria-current="page" to="/login">
           <h5>Logout</h5>
           </Link>
@@ -696,7 +730,7 @@ const Admin = () => {
       </Modal>
 
       <Modal
-        title="All Transactions"
+        title="all transactions"
         open={showTransactionsModal}
         onCancel={() => setShowTransactionsModal(false)}
         footer={null}
@@ -709,6 +743,40 @@ const Admin = () => {
           }))}
         />
       </Modal>
+      <Modal title={editable ? 'Edit Transaction':'Add transaction'} open={showModal} onCancel={() => setShowModal(false)} footer={false}>
+          <Form layout="vertical" onFinish={handleSubmit}>
+            <Form.Item label="Amount" name='amount'>
+              <Input type="number" />
+            </Form.Item>
+            <Form.Item label="Type" name='type'>
+              <Select placeholder="Select a type">
+                <Select.Option value="income">income</Select.Option>
+                <Select.Option value="expense">expense</Select.Option>
+              </Select>
+            </Form.Item>
+            <Form.Item label="Category" name='category'>
+              <Select placeholder="Select a category">
+                <Select.Option value="salary">salary</Select.Option>
+                <Select.Option value="gift">gift</Select.Option>
+                <Select.Option value="food">food</Select.Option>
+                <Select.Option value="movie">movie</Select.Option>
+                <Select.Option value="bills">bills</Select.Option>
+                <Select.Option value="fees">fees</Select.Option>
+                <Select.Option value="tax">tax</Select.Option>
+                <Select.Option value="others">others</Select.Option>
+              </Select>
+            </Form.Item>
+            <Form.Item label="Date" name='date'>
+              <Input type="date" />
+            </Form.Item>
+            <Form.Item label="Description" name='description'>
+              <Input type="text" />
+            </Form.Item>
+            <div className="d-flex justify-content-end">
+              <button type="submit" className="btn btn-primary">SAVE</button>
+            </div>
+          </Form>
+        </Modal>
     </div>
   );
 };
